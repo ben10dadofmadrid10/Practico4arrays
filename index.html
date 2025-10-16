@@ -1,0 +1,71 @@
+<html>
+
+<head>
+ 
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Serie de Arrays - Ejercicio 04</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="card">
+    <h2>🏷️ Arrays · Ejercicio 04: Impares y suma total</h2>
+
+    <div class="instrucciones">
+      <h3>📋 Instrucciones</h3>
+      <p>Usando el array <code>[15, 8, 23, 42, 7, 99, 14, 33, 50, 61]</code>, muestra todos los <b>números impares</b> 
+      y calcula la <b>suma total</b> de ellos. Utiliza un bucle <b>for</b> y un condicional <b>if</b>.</p>
+    </div>
+
+
+    <ul id="listaImpares" class="lista"></ul>
+
+    <!-- Contenedor para la suma total -->
+    <div id="resultado" class="resultado">La suma de los números impares aparecerá aquí.</div>
+
+    <button id="btnEjecutar" class="btn" type="button">¡Mostrar impares y su suma!</button>
+
+    <footer>Curso de JavaScript · Enseñanza Media | Ejercicio de Arrays 04</footer>
+  </div>
+
+
+  <script>
+    function mostrarImparesYSuma() {
+
+      let numeros = [15, 8, 23, 42, 7, 99, 14, 33, 50, 61];
+      let lista = document.getElementById('listaImpares');
+      let resultado = document.getElementById('resultado');
+
+      lista.innerHTML = "";
+      resultado.innerText = "";
+
+      let suma = 0;
+
+      console.log("mostrarImparesYSuma(): iniciando recorrido...");
+
+      for (let i = 0; i < numeros.length; i++) {
+        if (numeros[i] % 2 !== 0) {
+          let item = document.createElement('li');
+          item.innerText = "Índice " + i + ": " + numeros[i];
+          item.classList.add('impar');
+          lista.appendChild(item);
+          suma = suma + numeros[i];
+          console.log("Impar encontrado → índice " + i + ", valor " + numeros[i] + ", suma parcial: " + suma);
+        }
+      }
+
+      resultado.innerText = "🔢 La suma total de los números impares es: " + suma;
+      resultado.classList.add('mensaje-correcto');
+
+      console.log("mostrarImparesYSuma(): suma total final = " + suma);
+    }
+
+
+    let btnEjecutar = document.getElementById('btnEjecutar');
+    btnEjecutar.onclick = mostrarImparesYSuma;
+
+    
+    console.log('Script cargado: botón #btnEjecutar enlazado a mostrarImparesYSuma; listo para ejecutar.');
+  </script>
+</body>
+</html>
